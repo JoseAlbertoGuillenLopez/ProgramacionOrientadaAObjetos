@@ -8,12 +8,12 @@ class Coches:
     #Caracteristicas del coche
     #valores iniciales es posible declarar al principio de una clase
     def __init__(self,marca,color,modelo,velocidad,caballaje,plazas):
-        self.marca=marca
-        self.color=color
-        self.modelo=modelo
-        self.velocidad=velocidad
-        self.caballaje=caballaje
-        self.plazas=plazas
+        self.__marca=marca
+        self.__color=color
+        self.__modelo=modelo
+        self.__velocidad=velocidad
+        self.__caballaje=caballaje
+        self.__plazas=plazas
     
         
 
@@ -34,79 +34,58 @@ class Coches:
 
     #forma con get y set
     def getMarca(self):
-        return self.marca
+        return self.__marca
     
     def setMarca(self,marca):
-        self.marca=marca
+        self.__marca=marca
 
     #forma con decoradores
     @property
     def marca2(self):
-        return self.marca
+        return self.__marca
     
     @marca2.setter
     def marca2(self,marca):
-        self.marca=marca
+        self.__marca=marca
 
 
     
     def getColor(self):
-        return self.color
+        return self.__color
     
     def setColor(self,color):
-        self.color=color
+        self.__color=color
 
     def getModelo(self):
-        return self.modelo
+        return self.__modelo
     
     def setModelo(self,modelo):
-        self.modelo=modelo
+        self.__modelo=modelo
 
     def getVelocidad(self):
-        return self.velocidad
+        return self.__velocidad
     
     def setVelocidad(self,velocidad):
-        self.velocidad=velocidad
+        self.__velocidad=velocidad
 
     def getCaballaje(self):
-        return self.caballaje
+        return self.__caballaje
     
     def setCaballaje(self,caballaje):
-        self.caballaje=caballaje
+        self.__caballaje=caballaje
 
     def getPlazas(self):
-        return self.plazas
+        return self.__plazas
     
     def setPlazas(self,plazas):
-        self.plazas=plazas
+        self.__plazas=plazas
 
     #Metodos o acciones o funciones que hace el objeto 
 
     def acelerar(self):
-        pass
-
+        return "estas acelerando"
     def frenar(self):
-        pass  
+        return "estas frenando" 
 
 #Fin definir clase
 
-#Crear un objetos o instanciar la clase
-
-coche1=Coches("VW","Blanco","2022",220,150,5)
-coche1.num_serie=("hw78cwe") #se pueden agregar mas atributos que no esten en el init pero se tienen que llenar los campos del contructir antes
-print(f"Datos del Vehiculo: \n Marca:{coche1.getMarca()} \n color: {coche1.getColor()} \n Modelo: {coche1.getModelo()} \n velocidad: {coche1.getVelocidad()} \n caballaje: {coche1.getCaballaje()} \n plazas: {coche1.getPlazas()} ")
-
-
-
-coche2=Coches("Nissan","Azul","2020",180,150,6)
-print(f"Datos del Vehiculo: \n Marca:{coche2.getMarca()} \n color: {coche2.getColor()} \n Modelo: {coche2.getModelo()} \n velocidad: {coche2.getVelocidad()} \n caballaje: {coche2.getCaballaje()} \n plazas: {coche2.getPlazas()} ")
-#Segunda palabra de una funcion en mayusculas
-
-
-#con decoradores
-coche3=Coches("Honda","","",0,0,0)
-print(f"Datos del Vehiculo: \n Marca: {coche3.marca2}")
-
-coche4=Coches("Honda","","",0,0,0)
-coche4.marca2="Volvo"
-print(f"Datos del Vehiculo: \n Marca: {coche4.marca2}")
