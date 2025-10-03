@@ -1,3 +1,6 @@
+#Implementar paradigmas Estructurados VS POO
+
+#Estructurado
 def sum(base,altura):
     suma=base*altura
     return suma
@@ -7,9 +10,7 @@ altura=float(input("Tamaño de la altura: "))
 area=sum(base,altura)
 print(f"El area del rectangulo es: {area}")
 
-
-
-
+#POO
 class Rectangulos:
     def __init__(self,base,altura):
         self.base=base
@@ -18,7 +19,6 @@ class Rectangulos:
         return self.base*self.altura
     
 
-base=float(input("Valor Base: "))
-altura=float(input("Valor Altura: "))
-rect1=Rectangulos(base,altura)
+
+rect1=Rectangulos(5,3)
 print(f"Area: {rect1.area()}")
