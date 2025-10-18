@@ -95,7 +95,7 @@ class Camiones(Coches):
         super().__init__(marca, color, modelo, velocidad, caballaje, plazas)
         self.__eje=eje
         self.__capacidadCarga=capacidadCarga
-
+        
     @property
     def eje(self):
         return self.__eje

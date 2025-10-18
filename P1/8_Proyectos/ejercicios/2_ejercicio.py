@@ -1,5 +1,5 @@
 class Calculadora:
-    def _init_(self,n1,n2):
+    def __init__(self,n1,n2):
         self._n1=n1
         self._n2=n2
 
