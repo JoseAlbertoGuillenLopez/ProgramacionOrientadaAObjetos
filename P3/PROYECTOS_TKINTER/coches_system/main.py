@@ -13,11 +13,28 @@ commit_01_12_25
     3.5 cambiar_autos()
     3.6 eliminar_autos()
 
-    
-Productos entregables: 
+    Productos entregables: 
     *Estructura del proyecto
     *Modulo principal main
     *Interaccion con interfaces
+
+2 DICIEMBRE
+    1) Interfaces
+        1.1 insertar_camionetas()
+        1.2 consultar_camionetas()
+        1.3 cambiar_camionetas()
+        1.4 borrar_camionetas()
+        2.1 insertar_camiones()
+        2.2 consultar_camiones()
+        2.3 cambiar_camiones()
+        2.4 borrar_camiones()
+    
+    Productos Entregables
+        ** Interacción con todas las interfaces
+        ** Nombre del Commit: "commit_02_12_25"
+
+    
+
 '''
 from tkinter import *
 from view import view1
