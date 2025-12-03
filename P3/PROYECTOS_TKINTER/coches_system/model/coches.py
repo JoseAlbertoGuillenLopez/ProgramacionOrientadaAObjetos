@@ -45,3 +45,13 @@ class Autos:
         except:
             return False
 
+
+    @staticmethod
+    def consultarid(id): 
+        try:
+            cursor.execute(
+                "select * from coches where id=%s",(id,)
+            )
+            return cursor.fetchone()
+        except:
+            return False
