@@ -47,6 +47,30 @@ commit_01_12_25
         ** Interacción con la funcionalidad (controlador) de las interfaces anteriores
         ** Nombre del Commit: "commit_03_12_25 "
 
+4 DICIEMBRE
+    1) CONTROLADOR:
+        1.1 insertar_camionetas()
+        1.2 consultar_camionetas()
+        1.3 cambiar_camionetas()
+        1.4 borrar_camionetas()
+        
+    
+    Productos Entregables
+        ** Interacción con la funcionalidad (controlador) de las interfaces anteriores
+        ** Nombre del Commit: "commit_04_12_25 "
+
+5 DICIEMBRE
+    1) CONTROLADOR:
+        1.1 insertar_camiones()
+        1.2 consultar_camiones()
+        1.3 cambiar_camiones()
+        1.4 borrar_camiones()
+        
+    
+    Productos Entregables
+        ** Interacción con la funcionalidad (controlador) de las interfaces anteriores
+        ** Nombre del Commit: "commit_05_12_25 "
+
     
 
 '''

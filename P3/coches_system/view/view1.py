@@ -233,7 +233,7 @@ class View:
         lblcer=Label(ventana,text="Cerrado:").pack(pady=5)
         txtcer=Entry(ventana,textvariable=cerrado).pack(pady=5)
         
-        btnreg=Button(ventana,text="Registrar",command=lambda:"")
+        btnreg=Button(ventana,text="Registrar",command=lambda:funciones.Funciones.insertar_camionetas(ventana,tipo,marca.get(),color.get(),modelo.get(),velocidad.get(),caballaje.get(),plazas.get(),traccion.get(),cerrado.get()))
         btnreg.pack(pady=10)
 
         btnsal=Button(ventana,text="Volver",command=lambda:View.menu_acciones(ventana,tipo))
@@ -245,7 +245,9 @@ class View:
         lbltit=Label(ventana,text=f".:: Consultar {tipo}::.")
         lbltit.pack(pady=10)
 
-        lblreg=Label(ventana,text="registros").pack(pady=10)
+        datos=funciones.Funciones.consultar_camionetas()
+
+        lblreg=Label(ventana,text=f"{datos}").pack(pady=10)
         
         btnsal=Button(ventana,text="Volver",command=lambda:View.menu_acciones(ventana,tipo))
         btnsal.pack(pady=(20,0))
@@ -261,7 +263,7 @@ class View:
         lblid=Label(ventana,text="ID:").pack(pady=5)
         txtid=Entry(ventana,textvariable=id).pack(pady=5)
 
-        btncon=Button(ventana,text="Verificar",command=lambda:"")
+        btncon=Button(ventana,text="Verificar",command=lambda:funciones.Funciones.check_idcamionetas(ventana,tipo,id.get(),accion))
         btncon.pack(pady=10)
         
         btnsal=Button(ventana,text="Volver",command=lambda:View.menu_acciones(ventana,tipo))
@@ -283,6 +285,16 @@ class View:
         traccion=IntVar()
         cerrado=StringVar()
 
+        id.set(registros[0])
+        marca.set(registros[1])
+        color.set(registros[2])
+        modelo.set(registros[3])
+        velocidad.set(registros[4])
+        caballaje.set(registros[5])
+        plazas.set(registros[6])
+        traccion.set(registros[7])
+        cerrado.set(registros[8])
+
         txtid=Entry(ventana,textvariable=id,state="readonly").pack(pady=5)
         lblmar=Label(ventana,text="Marca:").pack(pady=5)
         txtmar=Entry(ventana,textvariable=marca).pack(pady=5)
@@ -301,7 +313,7 @@ class View:
         lblcer=Label(ventana,text="Cerrado:").pack(pady=5)
         txtcer=Entry(ventana,textvariable=cerrado).pack(pady=5)
 
-        btncamb=Button(ventana,text="Actualizar",command=lambda:"")
+        btncamb=Button(ventana,text="Actualizar",command=lambda:funciones.Funciones.cambiar_camionetas(ventana,tipo,marca.get(),color.get(),modelo.get(),velocidad.get(),caballaje.get(),plazas.get(),traccion.get(),cerrado.get(),id.get()))
         btncamb.pack(pady=10)
         
         btnsal=Button(ventana,text="Volver",command=lambda:View.checkid_camionetas(ventana,tipo,"Actualizar"))
@@ -315,12 +327,12 @@ class View:
 
 
         id=IntVar()
-        #id.set(id)
+        id.set(registros[0])
 
         lblid=Label(ventana,text="ID de la camioneta a borrar:").pack(pady=5)
         txtid=Entry(ventana,textvariable=id,state="readonly").pack(pady=5)
 
-        btncon=Button(ventana,text="Borrar",command=lambda:"")
+        btncon=Button(ventana,text="Borrar",command=lambda:funciones.Funciones.borrar_camionetas(ventana,tipo,id.get()))
         btncon.pack(pady=10)
         
         btnsal=Button(ventana,text="Volver",command=lambda:View.checkid_camionetas(ventana,tipo,"Eliminar"))
@@ -453,4 +465,3 @@ class View:
         
         btnsal=Button(ventana,text="Volver",command=lambda:View.checkid_camiones(ventana,tipo,"Eliminar"))
         btnsal.pack(pady=10)
-
