@@ -6,7 +6,7 @@ class View:
     def __init__(self,ventana):
         self.ventana=ventana
         ventana.geometry("500x650")
-        ventana.title("Gestion de Coches") 
+        ventana.title("Gestion de Vehiculos") 
         self.menu_principal(ventana)
 
     @staticmethod
@@ -67,7 +67,7 @@ class View:
             btncon.pack(pady=5)
             btnact=Button(ventana,text="3.- Actualizar",command=lambda:View.checkid_camiones(ventana,tipo,"Actualizar")) 
             btnact.pack(pady=5)
-            btneli=Button(ventana,text="5.- Eliminar",command=lambda:View.checkid_camionetas(ventana,tipo,"Borrar")) 
+            btneli=Button(ventana,text="5.- Eliminar",command=lambda:View.checkid_camiones(ventana,tipo,"Borrar")) 
             btneli.pack(pady=5)
             btnsal=Button(ventana,text="6.- Volver",command=lambda:View.menu_principal(ventana))
             btnsal.pack(pady=5)
@@ -374,7 +374,7 @@ class View:
         lblcap=Label(ventana,text="Capacidad carga:").pack(pady=5)
         txtcap=Entry(ventana,textvariable=capcarg).pack(pady=5)
         
-        btnreg=Button(ventana,text="Registrar",command=lambda:"")
+        btnreg=Button(ventana,text="Registrar",command=lambda:funciones.Funciones.insertar_camiones(ventana,tipo,marca.get(),color.get(),modelo.get(),velocidad.get(),caballaje.get(),plazas.get(),eje.get(),capcarg.get()))
         btnreg.pack(pady=10)
 
         btnsal=Button(ventana,text="Volver",command=lambda:View.menu_acciones(ventana,tipo))
@@ -386,7 +386,9 @@ class View:
         lbltit=Label(ventana,text=f".:: Consultar {tipo}::.")
         lbltit.pack(pady=10)
 
-        lblreg=Label(ventana,text="registros").pack(pady=10)
+        datos=funciones.Funciones.consultar_camiones()
+
+        lblreg=Label(ventana,text=f"{datos}").pack(pady=10)
         
         btnsal=Button(ventana,text="Volver",command=lambda:View.menu_acciones(ventana,tipo))
         btnsal.pack(pady=(20,0))
@@ -402,7 +404,7 @@ class View:
         lblid=Label(ventana,text="ID:").pack(pady=5)
         txtid=Entry(ventana,textvariable=id).pack(pady=5)
 
-        btncon=Button(ventana,text="Verificar",command=lambda:"")
+        btncon=Button(ventana,text="Verificar",command=lambda:funciones.Funciones.check_idcamiones(ventana,tipo,id.get(),accion))
         btncon.pack(pady=10)
         
         btnsal=Button(ventana,text="Volver",command=lambda:View.menu_acciones(ventana,tipo))
@@ -424,6 +426,16 @@ class View:
         eje=IntVar()
         capcarg=IntVar()
 
+        id.set(registros[0])
+        marca.set(registros[1])
+        color.set(registros[2])
+        modelo.set(registros[3])
+        velocidad.set(registros[4])
+        caballaje.set(registros[5])
+        plazas.set(registros[6])
+        eje.set(registros[7])
+        capcarg.set(registros[8])
+
         txtid=Entry(ventana,textvariable=id,state="readonly").pack(pady=5)
         lblmar=Label(ventana,text="Marca:").pack(pady=5)
         txtmar=Entry(ventana,textvariable=marca).pack(pady=5)
@@ -442,7 +454,7 @@ class View:
         lblcap=Label(ventana,text="Capacidad carga:").pack(pady=5)
         txtcap=Entry(ventana,textvariable=capcarg).pack(pady=5)
 
-        btncamb=Button(ventana,text="Actualizar",command=lambda:"")
+        btncamb=Button(ventana,text="Actualizar",command=lambda:funciones.Funciones.cambiar_camiones(ventana,tipo,marca.get(),color.get(),modelo.get(),velocidad.get(),caballaje.get(),plazas.get(),eje.get(),capcarg.get(),id.get()))
         btncamb.pack(pady=10)
         
         btnsal=Button(ventana,text="Volver",command=lambda:View.checkid_camiones(ventana,tipo,"Actualizar"))
@@ -455,12 +467,12 @@ class View:
         lbltit.pack(pady=10)
 
         id=IntVar()
-        #id.set(id)
+        id.set(registros[0])
 
         lblid=Label(ventana,text="ID del camion a borrar:").pack(pady=5)
         txtid=Entry(ventana,textvariable=id,state="readonly").pack(pady=5)
 
-        btncon=Button(ventana,text="Borrar",command=lambda:"")
+        btncon=Button(ventana,text="Borrar",command=lambda:funciones.Funciones.borrar_camiones(ventana,tipo,id.get()))
         btncon.pack(pady=10)
         
         btnsal=Button(ventana,text="Volver",command=lambda:View.checkid_camiones(ventana,tipo,"Eliminar"))

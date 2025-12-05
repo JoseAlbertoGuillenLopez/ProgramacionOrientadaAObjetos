@@ -44,3 +44,13 @@ class Camiones:
             return True
         except:
             return False
+        
+    @staticmethod
+    def consultar_id(id):
+        try:
+            cursor.execute(
+                "select * from camiones where id=%s",(id,)
+            )
+            return cursor.fetchone()
+        except:
+            return []

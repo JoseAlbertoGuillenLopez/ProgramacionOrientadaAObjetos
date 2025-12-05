@@ -99,3 +99,43 @@ class Funciones:
     def borrar_camionetas(ventana,tipo,id):
         registro=camionetas.Camionetas.eliminar(id)
         Funciones.respuesta_sql(registro,tipo)
+
+
+
+
+
+    @staticmethod
+    def check_idcamiones(ventana,tipo,id,accion):
+        registro=camiones.Camiones.consultar_id(id)
+        if registro:
+            if accion=="Actualizar":
+                view1.View.cambiar_camiones(ventana,tipo,registro)
+            else:
+                view1.View.borrar_camiones(ventana,tipo,registro)
+        else:
+            messagebox.showwarning(title=f"{tipo}",message=f"No existe vehiculo con ese ID")
+
+    def insertar_camiones(ventana,tipo,marca,color,modelo,velocidad,caballaje,plazas,eje,capcarg):
+        registro=camiones.Camiones.insertar(marca,color,modelo,velocidad,caballaje,plazas,eje,capcarg)
+        Funciones.respuesta_sql(registro,tipo)
+
+    def consultar_camiones():
+        registro=camiones.Camiones.consultar()
+        if registro:
+            numveh=0
+            txt=""
+            for i in registro:
+                numveh+=1
+                txt=txt+f"Num vehiculo: {numveh}  ID: {i[0]}  Marca:  {i[1]}\n  Color: {i[2]}  Modelo: {i[3]}  Velocidad: {i[4]}\n  Caballaje: {i[5]}  Plazas: {i[6]}   Eje: {i[7]}\n   Capacidad carga: {i[8]}\n\n"
+            return txt
+        else:
+            txt="No hay registros disponibles"
+            return txt
+        
+    def cambiar_camiones(ventana,tipo,marca,color,modelo,velocidad,caballaje,plazas,eje,capcarg,id):
+        registro=camiones.Camiones.actualizar(marca,color,modelo,velocidad,caballaje,plazas,eje,capcarg,id)
+        Funciones.respuesta_sql(registro,tipo)
+
+    def borrar_camiones(ventana,tipo,id):
+        registro=camiones.Camiones.eliminar(id)
+        Funciones.respuesta_sql(registro,tipo)

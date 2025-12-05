@@ -69,7 +69,7 @@ commit_01_12_25
     
     Productos Entregables
         ** Interacción con la funcionalidad (controlador) de las interfaces anteriores
-        ** Nombre del Commit: "commit_05_12_25 "
+        ** Nombre del Commit: "commit_05_12_25  "
 
     
 
